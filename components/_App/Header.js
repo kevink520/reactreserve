@@ -12,7 +12,7 @@ const Header = () => {
   const isActive = route => route === router.pathname;
   const user = false;
   return (
-    <Menu fluid id="menu" inverted>
+    <Menu stackable fluid id="menu" inverted>
       <Container text>
         <Link href="/">
           <Menu.Item header active={isActive('/')}>
