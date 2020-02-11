@@ -10,7 +10,7 @@ const mapProductsToItems = products => (
     header: name,
     image: mediaUrl,
     meta: `$${price}`,
-    color: 'teal',
+    //color: 'teal',
     fluid: true,
     childKey: _id,
     href: `/product?_id=${_id}`,

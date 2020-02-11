@@ -1,6 +1,8 @@
 :root {
-  --bodyBg: #f0f4f8;
-  --menuBg: #334d68;
+  --bodyBg: #fff;
+  /*--bodyBg: #f0f4f8;*/
+  --menuBg: #fff;
+  /*--menuBg: #334d68;*/
   --progressBar: #54d1db;
 }
 

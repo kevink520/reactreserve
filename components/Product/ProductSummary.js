@@ -7,6 +7,7 @@ const ProductSummary = ({
   _id,
   price,
   sku,
+  user,
 }) => {
   return (
     <Item.Group>
@@ -22,7 +23,10 @@ const ProductSummary = ({
             <Label>SKU: {sku}</Label>
           </Item.Description>
           <Item.Extra>
-            <AddProductToCart productId={_id} />
+            <AddProductToCart
+              productId={_id}
+              user={user}
+            />
           </Item.Extra>
         </Item.Content>
       </Item>
