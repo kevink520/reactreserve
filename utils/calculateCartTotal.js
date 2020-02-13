@@ -5,7 +5,7 @@ const calculateCartTotal = products => {
   }, 0);
   
   const cartTotal = (total * 100 / 100).toFixed(2);
-  const stripeTotal = Number(cartTotal);
+  const stripeTotal = Number((total * 100).toFixed(2));
   return { cartTotal, stripeTotal };
 };
 

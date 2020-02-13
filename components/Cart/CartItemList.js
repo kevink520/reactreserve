@@ -1,7 +1,12 @@
-import { Header, Segment, Button, Icon, Item } from 'semantic-ui-react';
+import { Header, Segment, Message, Button, Icon, Item } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 
-const CartItemList = ({ products, user, handleRemoveFromCart }) => {
+const CartItemList = ({
+  products,
+  user,
+  handleRemoveFromCart,
+  success,
+}) => {
   const router = useRouter();
   const mapCartProductsToItems = products => (
     products.map(p => ({
@@ -27,6 +32,17 @@ const CartItemList = ({ products, user, handleRemoveFromCart }) => {
       ),
     }))
   );
+
+  if (success) {
+    return (
+      <Message
+        success
+        header="Success!"
+        content="Your order and payment has been accepted"
+        icon="star outline"
+      />
+    );
+  }
 
   if (products.length === 0) {
     return (
