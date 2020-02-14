@@ -3,7 +3,11 @@ import uuidv4 from 'uuid/v4';
 import jwt from 'jsonwebtoken';
 import Cart from '../../models/Cart';
 import Order from '../../models/Order';
+import Product from '../../models/Product';
 import calculateCartTotal from '../../utils/calculateCartTotal';
+import connectDb from '../../utils/connectDb';
+
+connectDb();
 
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 export default async (req, res) => {
@@ -16,7 +20,7 @@ export default async (req, res) => {
     const { userId } = jwt.verify(req.headers.authorization, process.env.JWT_SECRET);
     const cart = await Cart.findOne({ user: userId }).populate({
       path: 'products.product',
-      model: 'Product',
+      model: Product,
     });
 
     const { cartTotal, stripeTotal } = calculateCartTotal(cart.products);
@@ -60,7 +64,7 @@ export default async (req, res) => {
     res.status(200).send('Checkout successful');
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error processing charge');
+    res.status(500).send('Error processing charge', error);
   }
 };
 
