@@ -96,7 +96,7 @@ const Login = () => {
       <Message
         attached="bottom"
       >{/* warning>*/}
-        <Icon name="help" />
+        {/*<Icon name="help" />*/}
         New user?{' '}
         <Link href="/signup">
           <a>Sign up here</a>
