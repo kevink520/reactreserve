@@ -5,3 +5,4 @@ dist
 next.config.*
 now.json
 .now
+.env.local
